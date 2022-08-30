@@ -5,7 +5,7 @@ With time limit, some cases are tested manually, such as delete user and then ch
 
 ## APIs
 
-### /user/create
+### 1. /user/create
 
 Create user.
 
@@ -27,7 +27,7 @@ return when success:
 {"code":0,"msg":""}
 ```
 
-### /user/delete
+### 2. /user/delete
 
 Delete user.
 
@@ -49,7 +49,7 @@ return when success:
 {"code":0,"msg":""}
 ```
 
-### /role/create
+### 3. /role/create
 
 Create role.
 
@@ -71,7 +71,7 @@ return when success:
 {"code":0,"msg":""}
 ```
 
-### /role/delete
+### 4. /role/delete
 
 Delete role.
 
@@ -93,7 +93,7 @@ return when success:
 {"code":0,"msg":""}
 ```
 
-### /user/add_role
+### 5. /user/add_role
 
 Add role to user.
 
@@ -115,7 +115,7 @@ return when success:
 {"code":0,"msg":""}
 ```
 
-### /auth/authenticate
+### 6. /auth/authenticate
 
 Authenticate.
 
@@ -134,13 +134,12 @@ curl -v 'http://127.0.0.1:8080/auth/authenticate' -H 'Content-Type: application/
 return when success:
 
 ```
-// \u0026 means "&"
-{"code":0,"msg":"","token":"expire=7200\u0026rand=HhYNOq9lFsbu9vDemPwFQA\u0026token=hVPsXOiVQ11zDmEZ1KlLoFQUbZGlFEeOyGhVKABu3MPuS-Ids2tB4K-RQ_FbQj4InFjdwpxuyQTfKpy1r3aQjvTfRx49K4mEYSmzZA3LMCoKI2zDBV1y9eIXrHRL5iMKdz6w2mLyybac7F0M0MM0LUq61y5gfj6HR5iZt3dkKBU\u0026ts=1661846597\u0026user=cat"}
+{"code":0,"msg":"","token":"expire=7200&rand=HhYNOq9lFsbu9vDemPwFQA&token=hVPsXOiVQ11zDmEZ1KlLoFQUbZGlFEeOyGhVKABu3MPuS-Ids2tB4K-RQ_FbQj4InFjdwpxuyQTfKpy1r3aQjvTfRx49K4mEYSmzZA3LMCoKI2zDBV1y9eIXrHRL5iMKdz6w2mLyybac7F0M0MM0LUq61y5gfj6HR5iZt3dkKBU&ts=1661846597&user=cat"}
 ```
 
 Token should be used in interfaces as follow.
 
-### /auth/invalidate
+### 7. /auth/invalidate
 
 Invalidate.
 
@@ -162,7 +161,7 @@ return when success:
 {"code":0,"msg":""}
 ```
 
-### /user/check_role
+### 8. /user/check_role
 
 Check role.
 
@@ -184,7 +183,7 @@ return when success:
 {"check_result":true,"code":0,"msg":""}
 ```
 
-### /user/all_roles
+### 9. /user/all_roles
 
 All roles.
 
