@@ -3,6 +3,14 @@ A simple authentication and authorization service.
 
 With time limit, some cases are tested manually, such as delete user and then check\_role, invalidate token and then check, expire token and then check, etc.
 
+Go-cache is used as inmemory storage. Logrus is used for logging. And Gin is a web framework.
+
+```
+github.com/patrickmn/go-cache
+github.com/sirupsen/logrus
+github.com/gin-gonic/gin
+```
+
 ## APIs
 
 ### 1. /user/create
@@ -119,6 +127,8 @@ return when success:
 
 Authenticate.
 
+When authenticating, we will check if the user exists first. Then the password will be checked after that. Password is stored after hashing by sha256. When finishing password checking, the Token will be generated through RSA encryption. We use private key to sign the token, and verify it by public key. The Token will expire within 2 hours (entity.TokenExpire).
+
 usage:
 
 ```
@@ -142,6 +152,8 @@ Token should be used in interfaces as follow.
 ### 7. /auth/invalidate
 
 Invalidate.
+
+We delete the token in go-cache when invalidate function is called.
 
 usage:
 
